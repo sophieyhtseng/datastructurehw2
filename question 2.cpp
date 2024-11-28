@@ -1,4 +1,4 @@
-// Your Name: Sophie
+// Your Name: Sophie        
 // Student ID: 1123504
 // Date of Submission: 28-Nov-2024
 
@@ -6,19 +6,20 @@
 #include <queue>
 #include <string>
 #include <vector>
+#include <tuple>
 using namespace std;
 
-// Custom comparator for the priority queue (max-heap)
+// Structure to represent a task
 struct Task {
     string name;
     int priority;
 
-    // Constructor
+    // Constructor for Task
     Task(string taskName, int taskPriority) : name(taskName), priority(taskPriority) {}
 
     // Overload < operator to create a max-heap
     bool operator<(const Task& other) const {
-        return priority < other.priority;
+        return priority < other.priority; // Higher priority tasks come first
     }
 };
 
@@ -28,12 +29,14 @@ int main() {
     int N;
 
     // Input: Number of operations
+    cout << "Enter the number of operations: ";
     cin >> N;
-    cin.ignore();
+    cin.ignore(); // Ignore newline character after reading N
 
     // Processing the commands
     for (int i = 0; i < N; ++i) {
         string command;
+        cout << "Enter command (ADD task_name priority or GET): ";
         getline(cin, command);
 
         if (command.substr(0, 3) == "ADD") {
